@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shazaan's Love Quiz</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe4e1;
+            text-align: center;
+            padding: 20px;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            background-color: #ffcccb;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .options button:hover {
+            background-color: #ffb6c1;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        .love-notes, .memory-lane, .theme-options {
+            margin-top: 40px;
+        }
+        .memory-lane img {
+            width: 200px;
+            margin: 10px;
+        }
+        .themes button {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            background-color: #add8e6;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .themes button:hover {
+            background-color: #87ceeb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shazaan's Love Quiz</h1>
+    
+    <!-- Question Section -->
+    <div class="question">
+        <h2>Who is your hubby?</h2>
+        <div class="options">
+            <button onclick="checkAnswer('shazaan', 'question1')">Shazaan</button>
+            <button onclick="checkAnswer('yuta', 'question1')">Yuta</button>
+        </div>
+        <div class="message" id="question1-message"></div>
+    </div>
+
+    <div class="question">
+        <h2>Where did we first meet?</h2>
+        <div class="options">
+            <button onclick="checkAnswer('jlea', 'question2')">JLEA</button>
+            <button onclick="checkAnswer('mall', 'question2')">Mall</button>
+            <button onclick="checkAnswer('park', 'question2')">Park</button>
+        </div>
+        <div class="message" id="question2-message"></div>
+    </div>
+
+    <div class="question">
+        <h2>What is my favorite color?</h2>
+        <div class="options">
+            <button onclick="checkAnswer('red', 'question3')">Red</button>
+            <button onclick="checkAnswer('purple', 'question3')">Purple</button>
+            <button onclick="checkAnswer('blue', 'question3')">Blue</button>
+            <button onclick="checkAnswer('green', 'question3')">Green</button>
+        </div>
+        <div class="message" id="question3-message"></div>
+    </div>
+
+    <div class="question">
+        <h2>What pets do I have?</h2>
+        <div class="options">
+            <button onclick="checkAnswer('fish', 'question4')">Fish</button>
+            <button onclick="checkAnswer('cat', 'question4')">Cat</button>
+            <button onclick="checkAnswer('dog', 'question4')">Dog</button>
+        </div>
+        <div class="message" id="question4-message"></div>
+    </div>
+
+    <div class="question">
+        <h2>What's my favorite series?</h2>
+        <div class="options">
+            <button onclick="checkAnswer('alice', 'question5')">Alice in the Borderlands</button>
+            <button onclick="checkAnswer('got', 'question5')">Game of Thrones</button>
+            <button onclick="checkAnswer('bb', 'question5')">Breaking Bad</button>
+            <button onclick="checkAnswer('stranger', 'question5')">Stranger Things</button>
+        </div>
+        <div class="message" id="question5-message"></div>
+    </div>
+
+    <div class="question">
+        <h2>What's my dream vacation destination?</h2>
+        <div class="options">
+            <button onclick="checkAnswer('japan', 'question6')">Japan</button>
+            <button onclick="checkAnswer('paris', 'question6')">Paris</button>
+            <button onclick="checkAnswer('hawaii', 'question6')">Hawaii</button>
+            <button onclick="checkAnswer('maldives', 'question6')">Maldives</button>
+        </div>
+        <div class="message" id="question6-message"></div>
+    </div>
+
+    <!-- Love Notes Section -->
+    <div class="love-notes">
+        <h2>Love Notes</h2>
+        <p id="love-note"></p>
+    </div>
+
+    <!-- Memory Lane Section -->
+    <div class="memory-lane">
+        <h2>Memory Lane</h2>
+        <img src="/mnt/data/DSC03475.JPG" alt="Memory 1">
+        <img src="/mnt/data/DSC03477.JPG" alt="Memory 2">
+        <img src="/mnt/data/DSC03478.JPG" alt="Memory 3">
+    </div>
+
+    <!-- Theme Options Section -->
+    <div class="theme-options">
+        <h2>Choose a Theme</h2>
+        <div class="themes">
+            <button onclick="changeTheme('light')">Light Theme</button>
+            <button onclick="changeTheme('dark')">Dark Theme</button>
+            <button onclick="changeTheme('pink')">Pink Theme</button>
+        </div>
+    </div>
+
+    <script>
+        const loveNotes = [
+            "You are my moon.",
+            "I love your eyes.",
+            "I like staring at you.",
+            "You make my heart skip a beat.",
+            "You are the best thing that ever happened to me."
+        ];
+
+        document.getElementById('love-note').textContent = loveNotes[Math.floor(Math.random() * loveNotes.length)];
+
+        function checkAnswer(answer, questionId) {
+            const messages = {
+                'shazaan': '💖 Correct!hehehe am your hubby laaa!',
+                'yuta': '😢 ehhh why is he your hubby huh damn girl!',
+                'jlea': '💖 You got it right!',
+                'mall': ' lets go on a date there soon but thats not the correct answer!',
+                'park': ' why do you think we met at a park heh!',
+                'red': '💖 Yes, you know me so well hehe my pretty girl!',
+                'purple': '💖 Yes, you know me so well good girlll!',
+                'blue': ' idk what to say try again nigga!',
+                'green': ' bruh fr?? green out of all the things??!',
+                'fish': '💖 Correct!',
+                'cat': ' Nope,but i did have cats so muah!',
+                'dog': '😢 Nope, i am scared of dogs did you forget?!',
+                'alice': '💖 Right answer!',
+                'got': ' i like this too but you dont know it la!',
+                'bb': ' i love this but you dont know i have watvhed these la!',
+                'stranger': '😢 No, try again!',
+                'japan': '💖 That\'s right!',
+                'paris': ' lets set our date there!',
+                'hawaii': ' honey moon together?!',
+                'maldives': ' idk seems nice, lets go together but the answer is obviously japan baby ma!'
+            };
+            document.getElementById(questionId + '-message').textContent = messages[answer];
+        }
+
+        function changeTheme(theme) {
+            if (theme === 'light') {
+                document.body.style.backgroundColor = '#ffe4e1';
+                document.body.style.color = '#000000';
+            } else if (theme === 'dark') {
+                document.body.style.backgroundColor = '#2f2f2f';
+                document.body.style.color = '#ffffff';
+            } else if (theme === 'pink') {
+                document.body.style.backgroundColor = '#ffc0cb';
+                document.body.style.color = '#000000';
+            }
+        }
+    </script>
+</body>
+</html>
